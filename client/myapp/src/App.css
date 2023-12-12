@@ -1,0 +1,519 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navItemsCollection 
+{
+   list-style-type:none ;
+   display:flex ;
+   font-size:1.55vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+   gap:5vw ;
+   margin-left:-2.5vw ;
+   margin-top:3vw ;
+   padding-top:1vw ;
+
+}
+
+.homepageHeader 
+{
+   background-color:black ;
+   color:yellow ;
+   margin-top:-3vw ;
+   height:4vw ;
+}
+
+.linking 
+{
+   text-decoration: none;
+   color:yellow ;
+   margin-left:0.75vw ;
+}
+
+.navItemsLogo 
+{
+   color:red ;
+   font-size: 3.5vw;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+   margin-top:-1vw ;
+}
+
+
+.cardCollection 
+{
+   display:flex ;
+   gap:8vw ;
+   margin-left:12vw ;
+   list-style-type:none ;
+   padding-top:12vw ;
+}
+
+.homepageCardHeading 
+{
+   font-size:3vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.collectionItems 
+{
+    background-color:black ;
+    color:yellow ;
+}
+
+.collectionItems:hover 
+{
+   transform:scale(1.5) ;
+   transform:scale(1.5) ;
+}
+
+
+.homepageCardBody 
+{
+   font-size:2vw ;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+   margin-top:-1vw ;
+}
+
+.hiringCard 
+{
+   text-align:right;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   margin-left:20vw ;
+   height:26vw ;
+   background-color:darkblue ;
+   color:white ;
+   border:solid ;
+   border-color: black ;
+}
+
+.hiringItemCollection 
+{
+   list-style-type:none ;
+   margin-top:-2vw ;
+   font-size:1.5vw ;
+}
+
+.hiringButton 
+{
+   width:10vw ;
+   background-color:red ;
+   color:white ;
+   border-radius:0.65rem ;
+   border-color:red ;
+   font-size:1.5vw ;
+   margin-right:3vw ;
+   margin-bottom:2vw
+}
+
+.hiringButton:hover 
+{
+   transform:scale(1.5) ;
+   transform:scale(1.5) ;
+}
+
+.hiringItemPara 
+{
+   font-size:1.5vw ;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+   font-style: oblique;
+}
+
+.sidebarCollection 
+{
+   text-align:left ;
+   font-size:2vw ;
+   list-style-type:none ;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   margin-left:-2.5vw ;  
+}
+
+.sidebar 
+{
+    margin-top:-134.5vw ;
+    background-color:purple ;
+    color:white ;
+    width:20vw ;
+    height:132.5vw ;
+}
+
+.domainCategory 
+{
+   list-style-type:none ; 
+   font-size:2.5vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+   display:flex ;
+   text-align: center;
+   gap:2vw ;
+}
+
+.fontIcons 
+{
+    width:25vw ;
+    height:15vw ;
+}
+
+
+
+.domainListItem 
+{
+   font-size:3vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.domainListItem:hover 
+{
+    transform:scale(1.5) ;
+    transform:scale(1.5) ;
+}
+
+.domainPara 
+{
+   font-size:3.5vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; 
+}
+
+.Domain 
+{
+    background-color:rgba(64,64,64,1);
+    color:white ;
+    margin-top:-3.5vw ;
+    height:90vw ;
+}
+
+.Dom1 
+{
+   background-color: rgba(64,64,64,1) ;
+   color:white ;
+   margin-top:-3vw ;
+}
+
+.projHeading 
+{
+   font-size:3vw ;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+   font-style:oblique ;
+}
+
+.projDes 
+{
+    font-size:2.5vw ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style:oblique ;
+    text-align:left ;
+    margin-top:-2vw ;
+}
+
+.formCollection 
+{
+   display:flex ;
+   list-style-type:none ;
+   gap:3vw ;
+}
+
+.domForm 
+{
+   text-align:left ; 
+}
+
+
+.domFormInput 
+{
+    width:20vw ;
+    font-size:1.5vw ;
+    margin-left:-2vw ;
+}
+
+.domArea 
+{
+   text-align:left ;
+   margin-left:1.35vw ;
+}
+
+.domFormInputArea 
+{
+    width:40vw ;
+    height:15vw ;
+    font-size:1.5vw ;
+}
+ 
+
+.formButton 
+{
+   width:10vw ;
+   background-color: red; 
+   color:white ;
+   font-size:1.5vw ;
+   border-radius: 0.65rem;
+   border-color:red ;
+}
+
+.formButton:hover 
+{
+    transform:scale(1.5) ;
+    transform:scale(1.5) ;
+}
+
+.domLinking 
+{
+   color:white ;
+   text-decoration: none; 
+}
+
+.Register 
+{
+    background-color:black ;
+    color:yellow ;
+    width:40vw ;
+    height:41vw ;
+    margin-left:30vw ;
+    border-radius:0.75rem;
+}
+
+
+.registerHeading 
+{
+    font-size:2vw ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    color:yellow ;
+}
+
+.registerFormInput 
+{
+    font-size:1.5 ;
+    width:30vw ;
+    height:3vw ;
+    border-radius:0.65rem ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-style: oblique;
+}
+
+.registerButton 
+{
+    background-color:red;
+    color:white ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:1.5vw ;
+    width:9vw ;
+    border-radius:0.95rem ;
+    border-color:red ;
+
+}
+
+.registerButton:hover 
+{
+   transform:scale(2.5) ;
+   transform:scale(1.5) ;
+}
+
+.Profile 
+{
+   background-color: darkblue;
+   color:white ;
+   margin-left:20vw ;
+   margin-right:20vw ;
+   height:50vw ;
+}
+
+.Post 
+{
+   background-color: purple;
+   color:white ;
+   margin-left:20vw ;
+   margin-right:20vw ;
+   height:40vw ;
+}
+
+.registerPara 
+{
+   font-size:2vw ;
+   text-decoration:none ;
+   color:yellow ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.paraLinking
+{
+   text-decoration: none;
+} 
+
+.browsingButton 
+{
+   font-size:1.5vw ;
+   background-color:red ;
+   color:white ;
+   width:12vw ;
+   border-radius:0.55rem ;
+   margin-right:35vw ;
+   margin-left:35vw ;
+}
+
+.browsingButton:hover 
+{
+   transform:scale(1.5) ;
+   transform:scale(1.5) ;
+}
+
+.container 
+{
+   background-color:purple ;
+   color:white ;
+   font-size:2vw ;
+   margin-top:-2.65vw ;
+   height:80vw ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.regContainer {
+   background-color:purple ;
+   height:100vw ;
+   position:relative ;
+}
+
+.parentContainer {
+   margin-top:-15vw ;
+}
+
+
+.Applications {
+   color:black ;
+}
+
+.cardItemSet {
+   display:flex ;
+   gap:6vw ; 
+   list-style-type: none;
+}
+
+.cardItems {
+   background-color: black; ;
+   color:yellow ;
+   width:25vw ;
+   height:20vw ;
+   border-radius:0.75vw ;
+}
+
+.cardParagraph {
+   font-size:2vw ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+.freelancerComponentSet {
+   display:flex ;
+   list-style-type: none;
+
+}
+
+.sidebarFreelancer {
+
+    background-color:black ;
+    color:yellow ;
+    width:100% ;
+    margin-top:-2vw ;
+    height:5vw ; 
+}
+
+.sidebarCollectionFreelancer 
+{
+   display:flex ;
+   font-size:2vw ;
+   list-style-type:none ;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   gap:3vw ; 
+   margin-left:10vw ;
+}
+
+.freelancerComponent {
+   list-style-type:none ;
+}
+
+.freelancerDataContent {
+   font-size:1.5vw ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: left;
+
+}
+
+.Freelancers {
+   background-color: rgba(64,64,64,1) ;
+   color:white ;
+}
+
+.homepageMain {
+   background-color: rgba(64,64,64,1);
+   color:white ;
+   margin-top:-1.5vw ;
+   height:85vw;
+}
+
+.RegisterContainer {
+   background-color: rgba(64,64,64,1);
+   height:80vw ;
+} 
+
+.freelancerInput {
+   border-radius:0.50rem ;
+}
+
+.HomePageUserContainer {
+   background-color: rgba(64,64,64,1); 
+   color:white ;
+   margin-top:-1.45vw ;
+}
+
+.homepageUserComponents {
+   list-style-type:none ;
+   margin-top:-0.40vw ;
+   margin-left:-3vw ;
+}
+
+.projectSet {
+   border:solid;
+   border-color: black;
+}
+
+.freelancerSet{
+   border:solid;
+   border-color: black;
+}
+
+.mainPageContainer {
+   background-color:rgba(64,64,64,1) ;
+   color:white ;
+   height:60vw ; 
+}
