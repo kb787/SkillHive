@@ -10,9 +10,12 @@ let profileSchema = mongoose.Schema({
        userDescription : {
            type :String
        } ,
-       userPortfolio : {
-           type : Object
+       userSkills : {
+           type : Array
        } ,
+       userPortfolio : {
+           type : String
+       } , 
        userEducation : {
            type : String
        } 

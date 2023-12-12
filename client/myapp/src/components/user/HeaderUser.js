@@ -29,7 +29,7 @@ const HeaderUser = () => {
                  </li> 
                  <li className = "navItems">
                  <FontAwesomeIcon icon = {faIdCard} />    
-                 <Link to = "/UserProfile" className = "linking">
+                 <Link to = "/NewProfile" className = "linking">
                        Profile
                 </Link>    
                  </li>

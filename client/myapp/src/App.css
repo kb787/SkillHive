@@ -420,6 +420,7 @@
    display:flex ;
    gap:6vw ; 
    list-style-type: none;
+   flex-wrap: wrap;
 }
 
 .cardItems {
@@ -460,9 +461,11 @@
    margin-left:10vw ;
 }
 
-.freelancerComponent {
-   list-style-type:none ;
-}
+   .freelancerComponent {
+      list-style-type:none ;
+    }
+   
+
 
 .freelancerDataContent {
    font-size:1.5vw ;
@@ -559,3 +562,5 @@
    background-color: darkgray;
    color:white ;
 }
+
+

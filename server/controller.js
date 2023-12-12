@@ -5,6 +5,7 @@ let freelanceDataModel = require("./freelacerModels") ;
 let userProfileModel = require("./profileModel") ;
 let freelancerProjectModel = require("./freelancerProjectModel") ;
 
+
 const handleApplyProject = async(req,res) => {
     const {projectId,projectAmount, projectDays, projectDescription} = req.body ;
     try {
@@ -212,25 +213,25 @@ const handleFetchFreelancerData = async(req,res) => {
 }
 
 const handleProfilePosting = async(req,res) => {
-    const {userName,userRole,userDescription,userPortfolio,userEducation} = req.body ;
+    const {userName,userRole,userDescription,userSkills,userPortfolio,userEducation} = req.body ;
     console.log(req.body) ;
      try {
-          let prevUser = await userProfileModel.find({userName,userRole,userDescription,userPortfolio,userEducation}) ;
+       {/*   let prevUser = await userProfileModel.find({userName}) ;
           if(prevUser){
               return res.status(400).send({message:"User already exists",success:false}) ;
           } 
           else {
-              let newUser = new userProfileModel() ;
-              console.log(newUser) ;
+    */}    
+              let newUser = await new userProfileModel(userName,userRole,userDescription,userSkills,userPortfolio,userEducation) ;
               let savedUser = await newUser.save() ;
-              return res.status(201).send({message:"Successfully added the user",newUser,success:true}) ;
+              console.log(savedUser) ;
+              return res.status(201).send({message:"Successfully added the user",savedUser,success:true}) ;
           } 
-     }
      catch(error) {
          console.log(error) ;
          return res.status(500).send({message:"Unable to post into database",success:false}) ;
      }
-}
+    }     
 
 const handleFetchProjects = async(req,res) => {
     const {projectTitle,projectAmount,projectDays,projectDescription} = req.body ;

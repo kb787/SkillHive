@@ -1,57 +1,6 @@
 import {useState,useEffect} from 'react' ;
 import {message} from 'antd' ;
 
-{/*
-const ApplicationsCard = () => {
-    const [applicationData,setApplicationData] = useState([]) ;
-
-    useEffect(() => {
-        const fetchApplication = async () => {
-             try {
-                  let fetchDataResponse = await fetch('http://localhost:3500/v4/api/projects/fetchapplication') ;
-                  if(!fetchDataResponse) {
-                        message.error('Unable to fetch your applications') 
-                  }
-                  else {
-                    let jsonData = await fetchDataResponse.json() ;
-                    console.log(jsonData) ;
-                     setApplicationData(jsonData) ;  
-                  }
-             }
-             catch(error) {
-                 message.error('Server side error occured') ;
-             }
-        }
-        fetchApplication()
-    },[])
-    return (
-    <>   
-        {
-            applicationData?.map((application) => (
-                <div className="ApplicationCard" key={application._id}>
-                    <div className="ApplicationDataContent">
-                        <p className = "applicationDataContent">
-                             {application.projectDescription}
-                        </p>
-                        <br/>
-                        <p className="applicationDataContent">
-                            {application.projectDays}
-                        </p>
-                        <br/>
-                        <p className="applicationDataContent">
-                            {application.projectAmount}
-                        </p>
-                    </div>
-                </div>
-            ))
-        }
-    </>     
-    )
-}
-*/}
-
-
-
 const ApplicationsCard = () => {
   const [applicationData, setApplicationData] = useState([]);
 

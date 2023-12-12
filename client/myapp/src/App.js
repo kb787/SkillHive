@@ -22,6 +22,7 @@ import FreelancerCard from './components/freelancer/FreelancerCard';
 import Freelancers from './components/freelancer/Freelancers';
 import HomepageUser from './components/user/HomepageUser';
 import ProjectBidding from './components/projectApplication/ProjectBidding';
+import NewProfile from './components/user/NewProfile';
 function App() {
   return (
     <div className="App">
@@ -48,6 +49,7 @@ function App() {
             <Route path = "/Freelancers" element = {<Freelancers/>} />
             <Route path = "/HomepageUser" element = {<HomepageUser/>} />
             <Route path = "/ProjectBidding" element = {<ProjectBidding/>} />  
+            <Route path = "/NewProfile" element = {<NewProfile/>} />
          </Routes>
       </BrowserRouter>    
     </div>
