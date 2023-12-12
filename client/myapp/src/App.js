@@ -1,27 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom' ;
-import Homepage from "./Homepage" ; 
-import Register from "./Register" ;
-import Login from "./Login" ;
-import Domain from "./Domain" ;
-import Dom1 from "./Dom1" ;
-import Dom2 from "./Dom2" ;
-import Dom3 from "./Dom3" ;
-import Dom4 from "./Dom4" ;
-import Dom5 from "./Dom5" ;
-import Dom6 from "./Dom6" ;
-import Dom7 from "./Dom7" ;
-import Dom8 from "./Dom8" ;
-import Dom9 from "./Dom9" ;
+import Homepage from "./components/general/Homepage" ; 
+import Register from "./components/authentification/Register" ;
+import Login from "./components/authentification/Login" ;
+import Domain from "./components/projectApplication/Domain" ;
+import Dom1 from "./components/projectApplication/Dom1" ;
+import Dom2 from "./components/projectApplication/Dom2" ;
+import Dom3 from "./components/projectApplication/Dom3" ;
+import Dom4 from "./components/projectApplication/Dom4" ;
+import Dom5 from "./components/projectApplication/Dom5" ;
+import Dom6 from "./components/projectApplication/Dom6" ;
+import Dom7 from "./components/projectApplication/Dom7" ;
+import Dom8 from "./components/projectApplication/Dom8" ;
+import Dom9 from "./components/projectApplication/Dom9" ;
 import Profile from "./Profile" ;
-import Post from "./Post" ;
-import Applications from "./Applications" ;
-import ApplicationsCard from './ApplicationsCard';
-import FreelancerCard from './FreelancerCard';
-import Freelancers from './Freelancers';
-import HomepageUser from './HomepageUser';
-import ProjectBidding from './ProjectBidding';
+import Post from "./components/freelancer/Post" ;
+import Applications from "./components/user/Applications" ;
+import ApplicationsCard from './components/user/ApplicationsCard';
+import FreelancerCard from './components/freelancer/FreelancerCard';
+import Freelancers from './components/freelancer/Freelancers';
+import HomepageUser from './components/user/HomepageUser';
+import ProjectBidding from './components/projectApplication/ProjectBidding';
 function App() {
   return (
     <div className="App">

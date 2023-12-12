@@ -2,7 +2,7 @@ import axios from 'axios' ;
 import {useState} from 'react' ;
 import {useNavigate} from 'react-router-dom' ;
 import {message} from 'antd' ;
-import HeaderUser from './HeaderUser';
+import HeaderUser from 'D:/FreelancingWebsite/client/myapp/src/components/user/HeaderUser'
 const Post = () => 
 {
    const [postId,setPostId] = useState('') ;

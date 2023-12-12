@@ -1,44 +1,36 @@
 import axios from 'axios' ;
 import {useState} from 'react' ;
-import {useNavigate,useLocation} from 'react-router-dom' ;
+import {useNavigate} from 'react-router-dom' ;
 import {message} from 'antd' ;
-import HeaderUser from './HeaderUser';
+import HeaderUser from 'D:/FreelancingWebsite/client/myapp/src/components/user/HeaderUser';
 const ProjectBidding = () => 
 {
-    const [projectId,setProjectId] = useState('') ;
-    const [projectAmount,setProjectAmount] = useState('') ;
-    const [projectDays,setProjectDays] = useState('') ;
-    const [projectDescription,setProjectDescription] = useState('') ;
-    
-    let location = useLocation() ;
-    let maxAmount,maxDays ;
-    maxAmount = location.state.maxAmount ;
-    maxDays = location.state.maxDays ;
-   var nav = useNavigate() ;
+  const [projectId,setProjectId] = useState('') ;
+  const [projectAmount,setProjectAmount] = useState('') ;
+  const [projectDays,setProjectDays] = useState('') ;
+  const [projectDescription,setProjectDescription] = useState('') ;
 
-   const handleValidation = () => {
-    
-   }
+   var nav = useNavigate() ;
 
    const handlePostNewProject = async() => 
    {
         try {
-            if(projectAmount === 0 || projectAmount > maxAmount || projectDays === 0 || projectDays > maxDays) 
-            {
-                 alert("Project Amount cannot be 0 or greater than max. Project days cannot be zero or greater than max days") ;
-            } 
               var postResponse = await axios.post("http://localhost:3500/v5/api/projects/applyProject",
                {
-                   projectId:projectId ,
-                   projectAmount:projectAmount ,
-                   projectDays:projectDays,
-                   projectDescription:projectDescription
+                  projectId:projectId ,
+                  projectAmount:projectAmount ,
+                  projectDays:projectDays ,
+                  projectDescription:projectDescription
                } 
               )
               console.log(postResponse) ;
-
-              message.success("Successfully applied to the project") ;
+              if(postResponse.data.success) {
+              message.success("Successfully sent your application") ;
               nav("/HomepageUser") ;
+              }
+              else {
+                 message.error('Unable to sent application')
+              }
         }
         catch(error)
         {
@@ -50,16 +42,16 @@ const ProjectBidding = () =>
    <div className = "mainPageContainer"> 
    <HeaderUser/>  
    <div className = "Register">
-     <h3 className = "registerHeading">
-        Enter your personal information 
+        <h3 className = "registerHeading">
+        Enter your personal details 
       </h3>
       <div className="registerForm">
     <input
-      type="text"
+      type={'email'}
       className="registerFormInput"
       id="exampleFormControlInput1"
       placeholder="Enter your email address"
-      required="true"
+      required={true}
       value={projectId}
       onChange={e =>  setProjectId(e.target.value)} 
     />
@@ -67,11 +59,11 @@ const ProjectBidding = () =>
   <br />
       <div className="registerForm">
     <input
-      type="number"
+      type={'number'}
       className="registerFormInput"
       id="exampleFormControlInput1"
-      placeholder="Enter your bid amount should be less than or equal to provided amount"
-      required="true"
+      placeholder="Enter your bidding amount"
+      required={true}
       value={projectAmount}
       onChange={e =>  setProjectAmount(e.target.value)} 
     />
@@ -79,11 +71,11 @@ const ProjectBidding = () =>
   <br />
   <div className="registerForm">
     <input
-      type="number"
+      type={'number'}
       className="registerFormInput"
       id="exampleFormControlInput1"
-      placeholder="Enter number of days"
-      required="true"
+      placeholder="Enter number of days required"
+      required={true}
       value={projectDays}
       onChange={e =>  setProjectDays(e.target.value)}  
     />
@@ -91,16 +83,16 @@ const ProjectBidding = () =>
   <br />
   <div className="registerForm">
     <input
-      type="text"
+      type={'text'}
       className="registerFormInput"
       id="exampleFormControlInput1"
-      placeholder="Describe how you will do the project"
+      placeholder="Describe how you will implement the project"
       required="true"
       value={projectDescription}
       onChange={e =>  setProjectDescription(e.target.value)} 
     />
   </div>
-  <br />
+  <br/>
   <button type="button" className="registerButton" onClick={handlePostNewProject}>
     Post
   </button>

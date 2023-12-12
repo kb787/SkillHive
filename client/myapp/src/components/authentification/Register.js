@@ -5,7 +5,7 @@ import {useState} from 'react' ;
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome' ;
 import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket} from '@fortawesome/free-solid-svg-icons' ;
 import {Link} from 'react-router-dom' ;
-import Header from './Header';
+import Header from '../general/Header';
 
 const Register = () => 
 {

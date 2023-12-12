@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome' ;
 import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket} from '@fortawesome/free-solid-svg-icons' ;
 import {Link} from 'react-router-dom' ;
+import homepageImg from 'D:/FreelancingWebsite/client/myapp/src/images/homepageImg.png'
 
 const Homepage = () => 
 {
@@ -42,6 +43,46 @@ const Homepage = () =>
               </ul>
            </header> 
            <main className = "homepageMain">
+
+           <ul  className = "mainCardCollection">
+                <li className = "mainCardCollectionItems">
+                     <img className = "mainCardCollectionItemsImage" src = {homepageImg}></img>
+                </li>
+                <li className = "mainCardCollectionItems">
+                     <ul className = "mainCardSubitemCollection">
+                          <span className = "subItemContent">
+                          <li className = "mainCardSubitemCollectionItems">
+                              Graphic Designing
+                           </li>
+                           </span>
+                           <br/>
+                           <span className = "subItemContent">
+                           <li className = "mainCardSubitemCollectionItems">
+                              Web Development
+                           </li>
+                           </span>
+                           <br/>
+                           <span className = "subItemContent">
+                           <li className = "mainCardSubitemCollectionItems">
+                              Mobile App Development 
+                           </li>
+                           </span>
+                           <br/>
+                           <span className = "subItemContent">
+                           <li className = "mainCardSubitemCollectionItems">
+                              Content Writing
+                           </li>
+                           </span>
+                           <br/>
+                           <span className = "subItemContent">
+                           <li className = "mainCardSubitemCollectionItems">
+                              and many more...
+                           </li>
+                           </span>
+
+                     </ul>
+                </li>
+          </ul>  
        <ul className = "cardCollection">
             <li className = "collectionItems">
             <div className="homepageCard" style={{ width: "25rem", height: "15rem"}}>

@@ -1,7 +1,7 @@
 import {FontAwesomeIcon  } from "@fortawesome/react-fontawesome"
 import  {faLaptop,faBlog, faVideo, faImage, faFileContract,faUserAstronaut,faChalkboardUser,faTruck,faHospital} from '@fortawesome/free-solid-svg-icons' ;
 import {Link} from 'react-router-dom' ;
-import HeaderUser from "./HeaderUser";
+import HeaderUser from "D:/FreelancingWebsite/client/myapp/src/components/user/HeaderUser"
 const Domain = () => 
 {
   return (  

@@ -2,7 +2,7 @@ import {useState} from 'react' ;
 import {useNavigate} from 'react-router-dom' ;
 import {message} from 'antd' ;
 import axios from 'axios' ;
-import Header from './Header';
+
 const Dom3 = () => 
 {
   const [projectId,setProjectId] = useState('') ;
@@ -43,7 +43,6 @@ const Dom3 = () =>
    }
    return (   
     <div className = "Dom1">
-       <Header/>
        <h3 className = "projHeading">Video editor required</h3>
        <br/>
        <p className = "projDes">

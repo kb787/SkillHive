@@ -1,5 +1,5 @@
-import HeaderUser from "./HeaderUser" ;
-import FreelancerprojectCard from "./FreelancingprojectCard";
+import HeaderUser from "D:/FreelancingWebsite/client/myapp/src/components/user/HeaderUser" ;
+import FreelancerprojectCard from "D:/FreelancingWebsite/client/myapp/src/components/projectApplication/FreelancingprojectCard" ;
 const HomepageUser = () => {
    return (
       <div className = "HomePageUserContainer">
