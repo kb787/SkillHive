@@ -563,4 +563,32 @@
    color:white ;
 }
 
+.selectionPara{
+   font-size:1.4vw ;
+   font-family:Verdana, Geneva, Tahoma, sans-serif ;
+   text-align:left;
+   margin-left:4.5vw;
+}
+
+.registerFormInputMultiselect{
+   font-size:1.5 ;
+   width:31vw ;
+   height:3vw ;
+   border-radius:0.75rem ;
+   font-family:Verdana, Geneva, Tahoma, sans-serif ;
+   font-style: oblique;  
+   margin-left:4.5vw;
+   background-color: black;
+   color:black;
+}
+ 
+.Profile
+{
+    background-color:black ;
+    color:yellow ;
+    width:40vw ;
+    height:44vw ;
+    margin-left:30vw ;
+    border-radius:0.75rem;
+}
 

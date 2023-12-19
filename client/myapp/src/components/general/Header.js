@@ -14,15 +14,13 @@ const Header = () => {
                    <Link to = "/Register" className = "linking">
                       Browse Work
                     </Link>  
-                 </li>
-               {/*  
+                 </li>  
                  <li className = "navItems">
                  <FontAwesomeIcon icon = {faUser} />    
                     <Link to = "/Freelancers" className = "linking">
                        Hire Freelancers
                     </Link> 
                  </li>
-               */}  
                  <li className = "navItems">
                  <FontAwesomeIcon icon = {faRightToBracket} />    
                  <Link to = "/Login" className = "linking">

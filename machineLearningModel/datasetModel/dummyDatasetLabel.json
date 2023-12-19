@@ -1,0 +1,32 @@
+[
+    {
+      "expectedSkill": "Continuous Integration/Continuous Deployment"
+    },
+    {
+      "expectedSkill": "Kubernetes Administration"
+    },
+    {
+      "expectedSkill": "Infrastructure as Code with Terraform"
+    },
+    {
+      "expectedSkill": "AWS Security Configuration"
+    },
+    {
+      "expectedSkill": "Docker Containerization"
+    },
+    {
+      "expectedSkill": "Serverless Application Deployment"
+    },
+    {
+      "expectedSkill": "Google Cloud Platform IAM Management"
+    },
+    {
+      "expectedSkill": "Azure VPN Setup"
+    },
+    {
+      "expectedSkill": "DDoS Protection Implementation"
+    },
+    {
+      "expectedSkill": "Cloud Security Posture Management"
+    }
+  ]

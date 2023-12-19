@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome' ;
-import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket,faIdCard,faHome} from '@fortawesome/free-solid-svg-icons' ;
+import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket,faUserPlus,faHome} from '@fortawesome/free-solid-svg-icons' ;
 import {Link} from 'react-router-dom' ;
 const HeaderUser = () => {
     return (
@@ -28,9 +28,9 @@ const HeaderUser = () => {
                 </Link>    
                  </li> 
                  <li className = "navItems">
-                 <FontAwesomeIcon icon = {faIdCard} />    
+                 <FontAwesomeIcon icon = {faUserPlus} />    
                  <Link to = "/NewProfile" className = "linking">
-                       Profile
+                     Profile
                 </Link>    
                  </li>
                  <li className = "navItems">

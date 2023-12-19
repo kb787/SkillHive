@@ -1,7 +1,7 @@
 let mongoose = require('mongoose') ;
 
 let profileSchema = mongoose.Schema({
-       userName : {
+       userFullName : {
           type:String 
        } ,
        userRole : {

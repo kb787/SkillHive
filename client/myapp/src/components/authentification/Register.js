@@ -31,7 +31,7 @@ const Register = () =>
          if(regRes.data && regRes.data.success)
          {
              message.success(" Successfully registered ") ;
-             nav("/HomepageUser") ;
+             nav("/Login") ;
          }
       //   else 
       //   {

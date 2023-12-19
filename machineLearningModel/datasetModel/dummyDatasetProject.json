@@ -1,0 +1,33 @@
+[
+    {
+      "projectTitle": "Implementing CI/CD Pipeline"
+    },
+    {
+      "projectTitle": "Setting Up Kubernetes Clusters"
+    },
+    {
+      "projectTitle": "Automating Infrastructure with Terraform"
+    },
+    {
+      "projectTitle": "Configuring AWS Security Groups"
+    },
+    {
+      "projectTitle": "Building Docker Containers"
+    },
+    {
+      "projectTitle": "Deploying Serverless Applications"
+    },
+    {
+      "projectTitle": "Managing IAM Policies in GCP"
+    },
+    {
+      "projectTitle": "Setting Up VPN in Azure"
+    },
+    {
+      "projectTitle": "Implementing DDoS Protection"
+    },
+    {
+      "projectTitle": "Auditing Cloud Security Posture"
+    }
+]
+  

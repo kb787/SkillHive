@@ -23,6 +23,8 @@ import Freelancers from './components/freelancer/Freelancers';
 import HomepageUser from './components/user/HomepageUser';
 import ProjectBidding from './components/projectApplication/ProjectBidding';
 import NewProfile from './components/user/NewProfile';
+import TokenizedUser from './components/user/TokenizedUserPage';
+// import ProtectedRouting from './components/authentification/ProtectedRouting';
 function App() {
   return (
     <div className="App">
@@ -50,6 +52,8 @@ function App() {
             <Route path = "/HomepageUser" element = {<HomepageUser/>} />
             <Route path = "/ProjectBidding" element = {<ProjectBidding/>} />  
             <Route path = "/NewProfile" element = {<NewProfile/>} />
+
+            <Route path = "/TokenizedUser" element = {<TokenizedUser/>} />
          </Routes>
       </BrowserRouter>    
     </div>

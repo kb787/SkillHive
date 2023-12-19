@@ -1,0 +1,265 @@
+[{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf137"
+  },
+  "projectTitle": "Website Redesign",
+  "projectAmount": 1500,
+  "projectDays": 14,
+  "projectDescription": "Redesign an existing website to improve user experience and modernize the design."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf138"
+  },
+  "projectTitle": "Mobile App Development",
+  "projectAmount": 3000,
+  "projectDays": 30,
+  "projectDescription": "Develop a cross-platform mobile app for both iOS and Android platforms with a focus on performance and user engagement."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf139"
+  },
+  "projectTitle": "Content Writing for Blog",
+  "projectAmount": 500,
+  "projectDays": 7,
+  "projectDescription": "Write engaging and SEO-friendly articles for a technology blog on a weekly basis."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13a"
+  },
+  "projectTitle": "Graphic Design for Marketing Materials",
+  "projectAmount": 800,
+  "projectDays": 10,
+  "projectDescription": "Create visually appealing graphics for marketing materials, including banners, brochures, and social media posts."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13b"
+  },
+  "projectTitle": "Data Entry and Analysis",
+  "projectAmount": 300,
+  "projectDays": 5,
+  "projectDescription": "Enter and analyze data in spreadsheets, ensuring accuracy and completeness."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13c"
+  },
+  "projectTitle": "E-commerce Website Development",
+  "projectAmount": 2500,
+  "projectDays": 21,
+  "projectDescription": "Build an e-commerce website with secure payment gateway integration and a user-friendly interface."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13d"
+  },
+  "projectTitle": "Social Media Marketing Campaign",
+  "projectAmount": 1200,
+  "projectDays": 14,
+  "projectDescription": "Create and execute a social media marketing campaign to increase brand awareness and engagement."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13e"
+  },
+  "projectTitle": "Video Editing for YouTube Channel",
+  "projectAmount": 600,
+  "projectDays": 8,
+  "projectDescription": "Edit and enhance videos for a YouTube channel, including adding graphics, music, and captions."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf13f"
+  },
+  "projectTitle": "Virtual Assistant Tasks",
+  "projectAmount": 400,
+  "projectDays": 7,
+  "projectDescription": "Provide virtual assistance with tasks such as email management, scheduling, and data entry."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf140"
+  },
+  "projectTitle": "SEO Optimization for Website",
+  "projectAmount": 1000,
+  "projectDays": 14,
+  "projectDescription": "Optimize website content and structure for better search engine visibility and rankings."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf141"
+  },
+  "projectTitle": "Logo Design for Startup",
+  "projectAmount": 700,
+  "projectDays": 7,
+  "projectDescription": "Design a unique and memorable logo for a new startup, reflecting its brand identity."
+},{
+  "_id": {
+    "$oid": "6575a208de4c1cc127fdf142"
+  },
+  "projectTitle": "Transcription Services",
+  "projectAmount": 200,
+  "projectDays": 3,
+  "projectDescription": "Transcribe audio recordings into written text with accuracy and attention to detail."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b4"
+  },
+  "projectTitle": "Website Development",
+  "projectAmount": 1500,
+  "projectDays": 30,
+  "projectDescription": "Create a responsive and dynamic website for a small business."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b5"
+  },
+  "projectTitle": "Logo Design",
+  "projectAmount": 500,
+  "projectDays": 14,
+  "projectDescription": "Design a unique and modern logo for a startup company."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b6"
+  },
+  "projectTitle": "Content Writing",
+  "projectAmount": 800,
+  "projectDays": 20,
+  "projectDescription": "Write engaging and SEO-friendly content for a blog."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b7"
+  },
+  "projectTitle": "Mobile App Development",
+  "projectAmount": 2500,
+  "projectDays": 45,
+  "projectDescription": "Develop a cross-platform mobile app for a social networking platform."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b8"
+  },
+  "projectTitle": "Data Entry",
+  "projectAmount": 300,
+  "projectDays": 10,
+  "projectDescription": "Enter and organize data into a spreadsheet for a research project."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8b9"
+  },
+  "projectTitle": "Graphic Design",
+  "projectAmount": 1200,
+  "projectDays": 25,
+  "projectDescription": "Create visually appealing graphics for a marketing campaign."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8ba"
+  },
+  "projectTitle": "Video Editing",
+  "projectAmount": 700,
+  "projectDays": 18,
+  "projectDescription": "Edit and enhance a promotional video for an online course."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8bb"
+  },
+  "projectTitle": "E-commerce Website",
+  "projectAmount": 2000,
+  "projectDays": 40,
+  "projectDescription": "Build an e-commerce website with payment gateway integration."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8bc"
+  },
+  "projectTitle": "Social Media Management",
+  "projectAmount": 1000,
+  "projectDays": 30,
+  "projectDescription": "Manage and curate content for social media accounts."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8bd"
+  },
+  "projectTitle": "Virtual Assistant",
+  "projectAmount": 400,
+  "projectDays": 15,
+  "projectDescription": "Provide virtual assistance for administrative tasks."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8be"
+  },
+  "projectTitle": "SEO Optimization",
+  "projectAmount": 600,
+  "projectDays": 20,
+  "projectDescription": "Optimize website content and meta tags for better search engine rankings."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8bf"
+  },
+  "projectTitle": "App UI/UX Design",
+  "projectAmount": 1800,
+  "projectDays": 35,
+  "projectDescription": "Design an intuitive and user-friendly interface for a mobile app."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c0"
+  },
+  "projectTitle": "Blog Development",
+  "projectAmount": 900,
+  "projectDays": 22,
+  "projectDescription": "Develop a blog platform with customizable themes and features."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c1"
+  },
+  "projectTitle": "Copywriting",
+  "projectAmount": 500,
+  "projectDays": 12,
+  "projectDescription": "Create persuasive and compelling copy for product descriptions."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c2"
+  },
+  "projectTitle": "Translation Services",
+  "projectAmount": 300,
+  "projectDays": 15,
+  "projectDescription": "Translate documents from English to Spanish for a global audience."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c3"
+  },
+  "projectTitle": "Illustration",
+  "projectAmount": 700,
+  "projectDays": 18,
+  "projectDescription": "Create custom illustrations for a children's book."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c4"
+  },
+  "projectTitle": "Database Management",
+  "projectAmount": 1200,
+  "projectDays": 28,
+  "projectDescription": "Optimize and manage a database for efficient data retrieval."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c5"
+  },
+  "projectTitle": "IT Consultation",
+  "projectAmount": 1500,
+  "projectDays": 30,
+  "projectDescription": "Provide consultation on IT infrastructure and technology solutions."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c6"
+  },
+  "projectTitle": "Grant Writing",
+  "projectAmount": 800,
+  "projectDays": 25,
+  "projectDescription": "Write grant proposals for a non-profit organization."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c7"
+  },
+  "projectTitle": "Game Development",
+  "projectAmount": 2500,
+  "projectDays": 45,
+  "projectDescription": "Develop a mobile game with engaging gameplay and graphics."
+},{
+  "_id": {
+    "$oid": "657d9f2bf22e9b8fa760b8c8"
+  },
+  "projectTitle": "Technical Support",
+  "projectAmount": 400,
+  "projectDays": 15,
+  "projectDescription": "Provide technical support for software and hardware issues."
+}]

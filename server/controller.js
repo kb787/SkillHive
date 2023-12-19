@@ -4,7 +4,9 @@ let postModel = require("./postModels") ;
 let freelanceDataModel = require("./freelacerModels") ;
 let userProfileModel = require("./profileModel") ;
 let freelancerProjectModel = require("./freelancerProjectModel") ;
-
+let jwt = require('jsonwebtoken') ;
+let dotenv = require('dotenv') ;
+dotenv.config() ;
 
 const handleApplyProject = async(req,res) => {
     const {projectId,projectAmount, projectDays, projectDescription} = req.body ;
@@ -106,7 +108,9 @@ const handlePostLogin = async(req,res) =>
              return res.status(200).send({message:"Invalid email or password", success:false}) ;
          }
          else 
-         {
+         { 
+
+            // let token = jwt.sign({userId:prevAccount._id,userEmail,userPassword}, process.env.secret_key)
              return res.status(201).send({message:"Successfully logged in", success:true}) ;
          }
     }
@@ -213,19 +217,14 @@ const handleFetchFreelancerData = async(req,res) => {
 }
 
 const handleProfilePosting = async(req,res) => {
-    const {userName,userRole,userDescription,userSkills,userPortfolio,userEducation} = req.body ;
-    console.log(req.body) ;
-     try {
-       {/*   let prevUser = await userProfileModel.find({userName}) ;
-          if(prevUser){
-              return res.status(400).send({message:"User already exists",success:false}) ;
-          } 
-          else {
-    */}    
-              let newUser = await new userProfileModel(userName,userRole,userDescription,userSkills,userPortfolio,userEducation) ;
+     try {  
+              const {userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation} = req.body ;
+              console.log(req.body) ;  
+              let newUser = await new userProfileModel({userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation},process.env.secret_key) ;
               let savedUser = await newUser.save() ;
+              let token = jwt.sign({userId:userProfileModel._id,userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation},process.env.secret_key) ;
               console.log(savedUser) ;
-              return res.status(201).send({message:"Successfully added the user",savedUser,success:true}) ;
+              return res.status(201).send({message:"Successfully added the user",savedUser,success:true,token}) ;
           } 
      catch(error) {
          console.log(error) ;
