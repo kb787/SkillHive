@@ -56,7 +56,7 @@ const Register = () =>
       type="text"
       className="registerFormInput"
       id="exampleFormControlInput1"
-      placeholder="Enter your name"
+      placeholder="Enter your full name"
       required={true}
       value={userName}
       onChange={e =>  setUserName(e.target.value)} 

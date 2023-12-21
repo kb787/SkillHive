@@ -245,6 +245,8 @@ const handleFetchProjects = async(req,res) => {
          return res.status(404).send({message:'Unable to fetch the data'}) ;
     }
 }
+
+
 let express = require('express') ;
 let projectRouter = express.Router() ;
 let registerRouter = express.Router() ;
@@ -254,6 +256,7 @@ let fetchApplicationRouter = express.Router() ;
 let fetchDataRouter = express.Router() ;
 let userProfileRouter = express.Router() ;
 let projectFetchRouter = express.Router() ;
+
 
 
 projectRouter.post('/applyProject', handleApplyProject) ;
@@ -273,6 +276,7 @@ fetchDataRouter.get('/fetchfreelancerdata',handleFetchFreelancerData) ;
 
 userProfileRouter.post('/postUserProfile',handleProfilePosting) ;
 
+
 module.exports  = {
     projectRouter:projectRouter ,
     projectFetchRouter:projectFetchRouter,
@@ -281,6 +285,6 @@ module.exports  = {
     postRouter:postRouter ,
     fetchApplicationRouter:fetchApplicationRouter ,
     fetchDataRouter:fetchDataRouter ,
-    userProfileRouter:userProfileRouter 
+    userProfileRouter:userProfileRouter ,
 }
 
