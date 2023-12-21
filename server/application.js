@@ -45,14 +45,14 @@ app.post("/v9/api/postSkillsNode", async (req, res) => {
         let nameValueFromProfile = await userProfileModel.findOne({userFullName: req.body.userFullName});
         if(nameValueFromProfile === nameValueFromRegister) {
             let skillValue = await userProfileModel.findOne({userSkills});
-            let jsonSkillValue = skillValue.json()
-            axios.post("http://127.0.0.1:5000/v9/api/postSkillsFlask", {jsonSkillValue},   
+            let jsonSkillValue = skillValue.toJSON() ;
+            axios.post("http://127.0.0.1:5000/v9/api/postSkillsFlask", jsonSkillValue,   
             {headers : {
                 'Content-Type': 'application/json'
             }})
                 .then(response => {
                     console.log(response.data);
-                    return res.status(201).send({message: 'Found a user', skillValue, success: true});
+                    return res.status(201).send({message: 'Found a user', jsonSkillValue , success: true});
                 })
                 .catch(error => {
                     console.log(error);
