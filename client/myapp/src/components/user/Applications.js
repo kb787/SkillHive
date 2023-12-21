@@ -5,7 +5,7 @@ import HeaderUser from './HeaderUser';
 const Applications = () => 
 { 
   return (
-      <div className = "RegisterContainer">  
+      <div className = "ApplicationsContainer">  
          <div className = "Applications">
             <HeaderUser/>     
             <ApplicationsCard/>

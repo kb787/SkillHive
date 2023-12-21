@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome' ;
-import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket,faHome,faIdCard} from '@fortawesome/free-solid-svg-icons' ;
+import {faClipboard, faBriefcase, faUser,faRightFromBracket,faRightToBracket,faHome,faIdCard,faCheck} from '@fortawesome/free-solid-svg-icons' ;
 import {Link} from 'react-router-dom' ;
 const HeaderTokenized = () => {
     return (
@@ -38,6 +38,12 @@ const HeaderTokenized = () => {
                  <Link to = "/HomepageUser" className = "linking">
                        Home
                 </Link>    
+                 </li>
+                 <li className = "navItems">
+                 <FontAwesomeIcon icon = {faCheck} />
+                 <Link to = "/RecommendationContainer" className = "linking">
+                      Recommended
+                 </Link>
                  </li>
               </ul>
            </header> 

@@ -1,19 +1,27 @@
-var express = require('express') ;
-var http = require('http') ;
-var app = express() ;
-var server = http.createServer(app) ;
-var Connect = require('./configure') ;
+let express = require('express') ;
+let http = require('http') ;
+let app = express() ;
+let server = http.createServer(app) ;
+let Connect = require('./configure') ;
 const {projectRouter, registerRouter,profileRouter,postRouter,fetchApplicationRouter,fetchDataRouter,userProfileRouter,projectFetchRouter} = require('./controller') ;
-let axios = require('axios') ;
+const axios = require('axios') ;
+const freelancerProjectModel = require('./freelancerProjectModel') ;
 
-var cors = require('cors') ;
- var corsOptions = {
+
+
+let cors = require('cors') ;
+ let corsOptions = {
   origin:"http://localhost:3000" ,
+ }
+
+ let corsOptions2 = {
+    origin:"http://127.0.0.1:5000",
  }
 
 
  app.use(express.json()) ;
- app.use(cors(corsOptions)) ; 
+ app.use(cors(corsOptions)) ;
+ app.use(cors(corsOptions2)) ; 
 Connect() ;
 
 app.get("/" , (req,res) => {
@@ -37,7 +45,11 @@ app.post("/v9/api/postSkillsNode", async (req, res) => {
         let nameValueFromProfile = await userProfileModel.findOne({userFullName: req.body.userFullName});
         if(nameValueFromProfile === nameValueFromRegister) {
             let skillValue = await userProfileModel.findOne({userSkills});
-            axios.post("http://localhost:5000/v9/api/postSkillsFlask", {skillValue})
+            let jsonSkillValue = skillValue.json()
+            axios.post("http://127.0.0.1:5000/v9/api/postSkillsFlask", {jsonSkillValue},   
+            {headers : {
+                'Content-Type': 'application/json'
+            }})
                 .then(response => {
                     console.log(response.data);
                     return res.status(201).send({message: 'Found a user', skillValue, success: true});
@@ -57,7 +69,24 @@ app.post("/v9/api/postSkillsNode", async (req, res) => {
     }
 });
 
-
+app.get("/v9/api/postSkillsNode",async(req,res) => {
+       const {projectTitle} = req.body 
+       try {
+           let fetchResponse = await fetch("http://localhost:5000/v9/api/postSkillsFlask") ;
+           let foundResponse = await freelancerProjectModel.findOne(fetchResponse.data === req.body.projectTitle) ;
+           if(!foundResponse) {
+             return res.status(404).send({message:'No object found'}) ;
+           }  
+           else {
+               axios.post("http://127.0.0.1:5000/v12/api/postDataReact" , {foundResponse}, {headers : {
+                'Content-Type': 'application/json' }}) ;
+           }
+       }
+       catch(error) {
+            console.log(error) ;
+            return res.status(500).send({message:'Unable to process your request'}) ;
+       }
+})
 
 
 server.listen(3500 , () => {

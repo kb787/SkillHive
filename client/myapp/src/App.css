@@ -41,9 +41,9 @@
 {
    list-style-type:none ;
    display:flex ;
-   font-size:1.55vw ;
+   font-size:1.35vw ;
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-   gap:5vw ;
+   gap:3vw ;
    margin-left:-2.5vw ;
    margin-top:3vw ;
    padding-top:1vw ;
@@ -421,6 +421,8 @@
    gap:6vw ; 
    list-style-type: none;
    flex-wrap: wrap;
+   padding-bottom:5vw ;
+   margin-left:6vw ;
 }
 
 .cardItems {
@@ -590,5 +592,10 @@
     height:44vw ;
     margin-left:30vw ;
     border-radius:0.75rem;
+}
+
+.ApplicationsContainer {
+   background-color: rgba(64,64,64,1);
+   height:cover;
 }
 
