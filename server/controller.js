@@ -1,130 +1,10 @@
-const projectModel = require("./projectModel") ;
-const userModel = require("./registerModels") ;
-const postModel = require("./postModels") ;
-const freelanceDataModel = require("./freelacerModels") ;
-const userProfileModel = require("./profileModel") ;
-const freelancerProjectModel = require("./freelancerProjectModel") ;
-const jwt = require('jsonwebtoken') ;
-const dotenv = require('dotenv') ;
-const bcryptjs = require('bcryptjs') ;
-dotenv.config() ;
 
-const handleApplyProject = async(req,res) => {
-    const {projectId,projectAmount, projectDays, projectDescription} = req.body ;
-    try {
-          let prevProject,newProject ;
-             prevProject = await projectModel.findOne({projectDescription:req.body.projectDescription}) ;
-             if(prevProject)
-             {
-                 return res.status(409).send({message:"Could not process duplicate request",success:false}) ;
-             }
-             newProject = await new projectModel ({
-             projectId, projectAmount,projectDays,projectDescription 
-          })
-         // console.log(newProject) ;
-          newProject.save() ;
-          return res.status(201).send({message:"Successfully saved the project", success:true, newProject}) ;
-    }
-    catch(error)
-    {
-        return res.status(500).send({message:"Unable to save project",success:false}) ;
-    } 
-} 
+const userModel = require("./models/registerModels") ;
+const postModel = require("./models/postModels") ;
+const freelanceDataModel = require("./models/freelacerModels") ;
+const userProfileModel = require("./models/profileModel") ;
+const freelancerProjectModel = require("./models/freelancerProjectModel") ;
 
-const handleGetProject = async(req,res) => {
-     try {
-         const {projectId,projectAmount,projectDays,projectDescription} = req.query ;
-         console.log(req.query) ;
-         let findProject = await projectModel.findOne({projectId 
-         })
-         if(findProject)
-         {
-            console.log(findProject) ;
-            return res.status(201).json({mesage:"Successfully got the applications",sucess:true,findProject}) ;
-         }
-         else 
-         {
-            return res.status(200).json({message:"Unable to find it",success:false}) ;
-         }
-         
-         
-     }
-     catch(error)
-     {
-         return res.status(500).send({message:"Unable to get previous applications",success:false}) ;
-     }
-}
-
-
-const handlePostRegister = async(req,res) => 
-{  
-  
-      try 
-      {
-        const {userName , userEmail, userPassword} = req.body ;
-        console.log(req.body) ;
-        if((!userName) || (!userEmail) || (!userPassword)){
-            return res.status(400).send({message:"Entering all fields is mandatory",success:false}) ;
-        }
-        let existingUser = await userModel.findOne({userEmail : req.body.userEmail}) ;
-        console.log(existingUser) ;
-          if(existingUser)
-           {
-              return res.status(409).send({message: "User Already Exists" , success:false}) ;
-           }
-          else 
-           { 
-             const salt = await bcryptjs.genSalt(10) ;
-             const hashedPassword = await bcryptjs.hash(userPassword,salt) ;
-             let newUser = await new userModel({userName,userEmail,userPassword:hashedPassword}) ;
-             const savedUser = await newUser.save({userName,userEmail,userPassword:hashedPassword}) ;
-             let requiredUser = {
-               userName:savedUser.userName ,
-               userEmail:savedUser.userEmail
-             }
-             console.log(savedUser) ;
-             return res.status(201).send({message:"Successfully saved the new user",success:true,requiredUser}) ;    
-           }
-    }
-    catch(error)
-    { 
-        console.log(error) ;
-        return res.status(500).send({message:"Server side error occured",success:false}) ;
-    }  
-
-}
-
-const handlePostLogin = async(req,res) => 
-{
-    try {
-         const {userEmail,userPassword} = req.body ;
-         console.log(req.body) ;
-         if((!userEmail) || (!userPassword)){
-             return res.status(409).send({message:"Entering all fileds is mandatory",success:false}) ;
-         }
-         let prevAccount = await userModel.findOne({
-              userEmail:req.body.userEmail 
-         })
-         if(!prevAccount)
-         {
-             return res.status(404).send({message:"Invalid email", success:false}) ;
-         }
-         let passwordComparison = await bcryptjs.compare(userPassword,prevAccount.userPassword) ;
-         if(passwordComparison !== true){
-            return res.status(404).send({message:"Invalid credentials",success:false}) ;
-         }
-         else 
-         { 
-             let token = jwt.sign({userId:prevAccount._id}, process.env.secret_key)
-             return res.status(200).send({message:"Successfully logged in", success:true,token}) ;
-         }
-    }
-    catch(error)
-    {
-         console.log(error) ;
-         return res.status(500).send({message:"Unable to login",success:false}) ;
-    }
-}
 
 const handlePostProfile = async(req,res) => 
 {
@@ -139,7 +19,8 @@ const handlePostProfile = async(req,res) =>
              )
              console.log(newProfile) ;
              await newProfile.save(profId,profFirstName,profLastName,profDescription,profAge,profTechSkills,profQualification,profPortfolio) ;
-             return res.status(201).send({message:"Successfully saving your profile details",success:true,newProfile}) ;
+             let profileToken = jwt.sign({userId:newProfile._id}, process.env.secret_key)
+             return res.status(201).send({message:"Successfully saving your profile details",success:true,profileToken}) ;
         
       }
       catch(error)
@@ -171,28 +52,7 @@ const handleGetProfile = async(req,res) =>
     }
 }
 
-const handlePostProjectPosts = async(req,res) => 
-{
-    try 
-    {
-        const {postId,postName,postDescription,postDays,postAmount} = req.body ;
-        console.log(req.body) ;
 
-        let postResponse = await new postModel(
-            {
-                postId,postName,postDescription,postDays,postAmount
-            }
-        )
-        await postResponse.save(postId,postName,postDescription,postDays,postAmount) ;
-        console.log(postResponse) ;
-        return res.status(201).send({message:"Successfully posted your project",sucess:true,postResponse}) ;
-    }
-    catch(error)
-    {
-        console.log(error) ;
-        return res.status(500).send({message:"Unable to post the project",success:false}) ;
-    }
-}
 
 const handleFetchApplications = async(req,res) => {
       try {
@@ -208,75 +68,26 @@ const handleFetchApplications = async(req,res) => {
       }
 }
 
-const handleFetchFreelancerData = async(req,res) => {
-    try {
-        const {name,location,skills,description,rating} = req.body ;
-        console.log(req.body) ;
-         let fetchResponse = await freelanceDataModel.find()
-         console.log(fetchResponse) ;
-         return res.send(fetchResponse) ;
-    }
-    catch(error) {
-         return res.status(404).send({message:"Unable to fetch the data"}) ;
-    }
-}
-
-const handleProfilePosting = async(req,res) => {
-     try {  
-              const {userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation} = req.body ;
-              console.log(req.body) ;  
-              let newUser = await new userProfileModel({userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation},process.env.secret_key) ;
-              let savedUser = await newUser.save() ;
-              let token = jwt.sign({userId:userProfileModel._id,userFullName,userRole,userDescription,userSkills,userPortfolio,userEducation},process.env.secret_key) ;
-              console.log(savedUser) ;
-              return res.status(201).send({message:"Successfully added the user",savedUser,success:true,token}) ;
-          } 
-     catch(error) {
-         console.log(error) ;
-         return res.status(500).send({message:"Unable to post into database",success:false}) ;
-     }
-    }     
-
-const handleFetchProjects = async(req,res) => {
-    const {projectTitle,projectAmount,projectDays,projectDescription} = req.body ;
-    console.log(req.body) ; 
-    try {
-         let fetchedUser = await freelancerProjectModel.find() ;
-         console.log(fetchedUser) ;
-         return res.send(fetchedUser) ;
-    }
-    catch(error){
-         console.log(error) ;
-         return res.status(404).send({message:'Unable to fetch the data'}) ;
-    }
-}
 
 
-let express = require('express') ;
-let projectRouter = express.Router() ;
-let registerRouter = express.Router() ;
-let profileRouter  = express.Router() ;
-let postRouter = express.Router() ;
+    
+
+
+
+
+
 let fetchApplicationRouter = express.Router() ;
 let fetchDataRouter = express.Router() ;
 let userProfileRouter = express.Router() ;
 let projectFetchRouter = express.Router() ;
-let loginRouter = express.Router() ;
 
 
 
 
-projectRouter.post('/applyProject', handleApplyProject) ;
-projectFetchRouter.get('/getProject',handleFetchProjects) ;
 
 
-registerRouter.post('/postRegister',handlePostRegister) ;
-loginRouter.post('/postLogin', handlePostLogin) ;
 
-profileRouter.post('/postProfile',handlePostProfile) ;
-profileRouter.get('/getProfile',handleGetProfile) ;
 
-postRouter.post('/postProject', handlePostProjectPosts) ;
 
 fetchApplicationRouter.get('/fetchapplication',handleFetchApplications) ;
 fetchDataRouter.get('/fetchfreelancerdata',handleFetchFreelancerData) ;
