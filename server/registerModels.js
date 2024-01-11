@@ -1,30 +1,30 @@
-var mongoose = require('mongoose') ;
+const mongoose = require('mongoose') ;
 
-var registerSchema = mongoose.Schema(
+const userSchema = mongoose.Schema(
     {
         userName :
         {
             type:String ,
-            required:true
+          //  required:true
         } ,
         userEmail : 
         {
              type:String ,
-             required:true ,
+          //   required:true ,
         } ,
         userPassword :
         {
             type:String ,
-            required:true
+          //  required:true
         }
 
     }
 ) 
 
-if(mongoose.models['users']) 
-{
-    return mongoose.model('users') ;
+let userModel ;
+if(mongoose.models.users){
+    registerModel = mongoose.model('users') ;
 }
+userModel = mongoose.model('users',userSchema) ;
 
-var registerModel = mongoose.model('users',registerSchema) ;
-module.exports = registerModel ;
+module.exports =  userModel ;

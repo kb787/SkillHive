@@ -1,11 +1,11 @@
-let projectModel = require("./projectModel") ;
-let registerModel = require("./registerModels") ;
-let postModel = require("./postModels") ;
-let freelanceDataModel = require("./freelacerModels") ;
-let userProfileModel = require("./profileModel") ;
-let freelancerProjectModel = require("./freelancerProjectModel") ;
-let jwt = require('jsonwebtoken') ;
-let dotenv = require('dotenv') ;
+const projectModel = require("./projectModel") ;
+const userModel = require("./registerModels") ;
+const postModel = require("./postModels") ;
+const freelanceDataModel = require("./freelacerModels") ;
+const userProfileModel = require("./profileModel") ;
+const freelancerProjectModel = require("./freelancerProjectModel") ;
+const jwt = require('jsonwebtoken') ;
+const dotenv = require('dotenv') ;
 dotenv.config() ;
 
 const handleApplyProject = async(req,res) => {
@@ -56,31 +56,31 @@ const handleGetProject = async(req,res) => {
 
 
 const handlePostRegister = async(req,res) => 
-{
-   
-{
-    try 
-    {
-     const {userName , userEmail, userPassword} = req.body ;
+{  
+  {
+      try 
+      {
+        const {userName , userEmail, userPassword} = req.body ;
         console.log(req.body) ;
-        let existingUser = await registerModel.findOne({userEmail : req.body.userEmail}) ;
+        let existingUser = await userModel.findOne({userEmail : req.body.userEmail}) ;
         console.log(existingUser) ;
-        if(existingUser)
-        {
-            return res.status(200).send({message: "User Already Exists" , success:false}) ;
-        }
-        else 
-        { 
-          
-           const userName = req.body.userName ;
-           const userPassword = req.body.userPassword ;
-           let newUser = new registerModel({
-            userName,userEmail,userPassword
-            }) ;
-           await newUser.save({userName,userEmail,userPassword}) ;
-           return res.status(201).send({message:"Successfully saved the new user",success:true}) ;    
-           
-        }
+          if(existingUser)
+           {
+              return res.status(409).send({message: "User Already Exists" , success:false}) ;
+           }
+          else 
+           { 
+             const salt = await bcryptjs.gensalt(10) ;
+             const hashedPassword = await bcryptjs.hash(userPassword,salt) ;
+             let newUser = await new userModel({userName,userEmail,userPassword:hashedPassword}) ;
+             const savedUser = await newUser.save() ;
+             let requiredUser = {
+               userName:savedUser.userName ,
+               userEmail:savedUser.userEmail
+             }
+             console.log(requiredUser) ;
+             return res.status(201).send({message:"Successfully saved the new user",success:true,requiredUser}) ;    
+           }
     }
     catch(error)
     { 
@@ -101,17 +101,17 @@ const handlePostLogin = async(req,res) =>
          })
          if(!prevAccount)
          {
-             return res.status(200).send({message:"Invalid email", success:false}) ;
+             return res.status(404).send({message:"Invalid email", success:false}) ;
          }
          else if(prevAccount.userPassword !== req.body.userPassword) 
          {
-             return res.status(200).send({message:"Invalid email or password", success:false}) ;
+             return res.status(405).send({message:"Invalid email or password", success:false}) ;
          }
          else 
          { 
 
             // let token = jwt.sign({userId:prevAccount._id,userEmail,userPassword}, process.env.secret_key)
-             return res.status(201).send({message:"Successfully logged in", success:true}) ;
+             return res.status(200).send({message:"Successfully logged in", success:true}) ;
          }
     }
     catch(error)
@@ -127,7 +127,7 @@ const handlePostProfile = async(req,res) =>
       {
           const {profId, profFirstName,profLastName,profDescription,profAge,profTechSkills,profQualification,profPortfolio} = req.body ;
           console.log(req.body) ; 
-             let newProfile = new profileModel(
+             let newProfile = new userProfileModel(
                 {
                     profId,profFirstName,profLastName,profDescription,profAge,profTechSkills,profQualification,profPortfolio
                 }   
@@ -256,6 +256,8 @@ let fetchApplicationRouter = express.Router() ;
 let fetchDataRouter = express.Router() ;
 let userProfileRouter = express.Router() ;
 let projectFetchRouter = express.Router() ;
+let loginRouter = express.Router() ;
+
 
 
 
@@ -264,7 +266,7 @@ projectFetchRouter.get('/getProject',handleFetchProjects) ;
 
 
 registerRouter.post('/postRegister',handlePostRegister) ;
-registerRouter.post('/postLogin', handlePostLogin) ;
+loginRouter.post('/postLogin', handlePostLogin) ;
 
 profileRouter.post('/postProfile',handlePostProfile) ;
 profileRouter.get('/getProfile',handleGetProfile) ;
@@ -281,6 +283,7 @@ module.exports  = {
     projectRouter:projectRouter ,
     projectFetchRouter:projectFetchRouter,
     registerRouter:registerRouter ,
+    loginRouter:loginRouter,
     profileRouter:profileRouter ,
     postRouter:postRouter ,
     fetchApplicationRouter:fetchApplicationRouter ,

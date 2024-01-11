@@ -15,9 +15,29 @@ const Register = () =>
   const [userPassword, setUserPassword] = useState('') ;
 
   var nav = useNavigate();
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  const handleValidationRegister = () => {
+      if((!userName) || (!userEmail) || (!userPassword)){
+          alert("Entering all fields is mandatory") ;
+          message.error("Registration failed") ;
+      }
+      else if(typeof(userName) !== 'string') {
+         alert("Username should contain text") ;
+         setUserName('') ;
+         message.error("Registration failed") ;
+      }
+      else if(validEmail.test(userEmail) !== true){
+          alert("Enter a valid email address") ;
+          setUserEmail('') ;
+          message.error("Registration failed") ;
+      }
+      
+  }
 
   const handlePostReg = async() => 
   {
+      handleValidationRegister() ;
       try 
       {
          var regRes = await axios.post("http://localhost:3500/v1/api/users/postRegister",
@@ -28,15 +48,12 @@ const Register = () =>
          }
          )
          console.log(regRes) ;
-         if(regRes.data && regRes.data.success)
+      //   if(regRes.data && regRes.data.success)
+         if (regRes.data.success)
          {
              message.success(" Successfully registered ") ;
              nav("/Login") ;
          }
-      //   else 
-      //   {
-      //      message.error(" Unable to register ") ;
-      //   }
       }
       catch(error)
       {
@@ -44,6 +61,7 @@ const Register = () =>
          message.error(" Server side error had occured ") ;
       }
   } 
+
     return (
     <div className = "RegisterContainer">  
      <Header/>   
@@ -59,7 +77,7 @@ const Register = () =>
       placeholder="Enter your full name"
       required={true}
       value={userName}
-      onChange={e =>  setUserName(e.target.value)} 
+      onChange={(e) =>  setUserName(e.target.value)} 
     />
   </div>
   <br />
@@ -71,7 +89,7 @@ const Register = () =>
       placeholder="Enter your email"
       required={true}
       value={userEmail}
-      onChange={e =>  setUserEmail(e.target.value)} 
+      onChange={(e) =>  setUserEmail(e.target.value)} 
       
     />
   </div>
@@ -84,7 +102,7 @@ const Register = () =>
       placeholder="Enter your password"
       required="true"
       value={userPassword}
-      onChange={e =>  setUserPassword(e.target.value)} 
+      onChange={(e) =>  setUserPassword(e.target.value)} 
     />
   </div>
   <br />

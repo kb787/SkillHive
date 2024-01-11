@@ -3,7 +3,7 @@ let http = require('http') ;
 let app = express() ;
 let server = http.createServer(app) ;
 let Connect = require('./configure') ;
-const {projectRouter, registerRouter,profileRouter,postRouter,fetchApplicationRouter,fetchDataRouter,userProfileRouter,projectFetchRouter} = require('./controller') ;
+const {projectRouter, registerRouter,loginRouter,profileRouter,postRouter,fetchApplicationRouter,fetchDataRouter,userProfileRouter,projectFetchRouter} = require('./controller') ;
 const axios = require('axios') ;
 const freelancerProjectModel = require('./freelancerProjectModel') ;
 
@@ -30,6 +30,7 @@ app.get("/" , (req,res) => {
 
 app.use("/v5/api/projects", projectRouter) ;
 app.use("/v1/api/users", registerRouter) ;
+app.use("/v9/api/users",loginRouter) ;
 app.use("/v2/api/profiles",profileRouter) ;
 app.use("/v3/api/posts",postRouter) ;
 app.use("/v4/api/projects",fetchApplicationRouter) ;
