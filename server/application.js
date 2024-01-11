@@ -13,15 +13,16 @@ let cors = require('cors') ;
  let corsOptions = {
   origin:"http://localhost:3000" ,
  }
-
+{/*
  let corsOptions2 = {
     origin:"http://127.0.0.1:5000",
  }
+*/}
 
 
  app.use(express.json()) ;
  app.use(cors(corsOptions)) ;
- app.use(cors(corsOptions2)) ; 
+// app.use(cors(corsOptions2)) ; 
 Connect() ;
 
 app.get("/" , (req,res) => {
@@ -29,8 +30,8 @@ app.get("/" , (req,res) => {
 })
 
 app.use("/v5/api/projects", projectRouter) ;
-app.use("/v1/api/users", registerRouter) ;
-app.use("/v9/api/users",loginRouter) ;
+app.use("/v1/api", registerRouter) ;
+app.use("/v9/api",loginRouter) ;
 app.use("/v2/api/profiles",profileRouter) ;
 app.use("/v3/api/posts",postRouter) ;
 app.use("/v4/api/projects",fetchApplicationRouter) ;

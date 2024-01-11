@@ -40,7 +40,7 @@ const Register = () =>
       handleValidationRegister() ;
       try 
       {
-         var regRes = await axios.post("http://localhost:3500/v1/api/users/postRegister",
+         var regRes = await axios.post("http://localhost:3500/v1/api/postRegister",
          {
             userName : userName ,
             userEmail:userEmail ,
@@ -48,7 +48,6 @@ const Register = () =>
          }
          )
          console.log(regRes) ;
-      //   if(regRes.data && regRes.data.success)
          if (regRes.data.success)
          {
              message.success(" Successfully registered ") ;

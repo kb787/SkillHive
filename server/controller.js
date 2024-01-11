@@ -6,6 +6,7 @@ const userProfileModel = require("./profileModel") ;
 const freelancerProjectModel = require("./freelancerProjectModel") ;
 const jwt = require('jsonwebtoken') ;
 const dotenv = require('dotenv') ;
+const bcryptjs = require('bcryptjs') ;
 dotenv.config() ;
 
 const handleApplyProject = async(req,res) => {
@@ -57,11 +58,14 @@ const handleGetProject = async(req,res) => {
 
 const handlePostRegister = async(req,res) => 
 {  
-  {
+  
       try 
       {
         const {userName , userEmail, userPassword} = req.body ;
         console.log(req.body) ;
+        if((!userName) || (!userEmail) || (!userPassword)){
+            return res.status(400).send({message:"Entering all fields is mandatory",success:false}) ;
+        }
         let existingUser = await userModel.findOne({userEmail : req.body.userEmail}) ;
         console.log(existingUser) ;
           if(existingUser)
@@ -70,15 +74,15 @@ const handlePostRegister = async(req,res) =>
            }
           else 
            { 
-             const salt = await bcryptjs.gensalt(10) ;
+             const salt = await bcryptjs.genSalt(10) ;
              const hashedPassword = await bcryptjs.hash(userPassword,salt) ;
              let newUser = await new userModel({userName,userEmail,userPassword:hashedPassword}) ;
-             const savedUser = await newUser.save() ;
+             const savedUser = await newUser.save({userName,userEmail,userPassword:hashedPassword}) ;
              let requiredUser = {
                userName:savedUser.userName ,
                userEmail:savedUser.userEmail
              }
-             console.log(requiredUser) ;
+             console.log(savedUser) ;
              return res.status(201).send({message:"Successfully saved the new user",success:true,requiredUser}) ;    
            }
     }
@@ -86,8 +90,7 @@ const handlePostRegister = async(req,res) =>
     { 
         console.log(error) ;
         return res.status(500).send({message:"Server side error occured",success:false}) ;
-    }
-}  
+    }  
 
 }
 
@@ -96,22 +99,24 @@ const handlePostLogin = async(req,res) =>
     try {
          const {userEmail,userPassword} = req.body ;
          console.log(req.body) ;
-         let prevAccount = await registerModel.findOne({
+         if((!userEmail) || (!userPassword)){
+             return res.status(409).send({message:"Entering all fileds is mandatory",success:false}) ;
+         }
+         let prevAccount = await userModel.findOne({
               userEmail:req.body.userEmail 
          })
          if(!prevAccount)
          {
              return res.status(404).send({message:"Invalid email", success:false}) ;
          }
-         else if(prevAccount.userPassword !== req.body.userPassword) 
-         {
-             return res.status(405).send({message:"Invalid email or password", success:false}) ;
+         let passwordComparison = await bcryptjs.compare(userPassword,prevAccount.userPassword) ;
+         if(passwordComparison !== true){
+            return res.status(404).send({message:"Invalid credentials",success:false}) ;
          }
          else 
          { 
-
-            // let token = jwt.sign({userId:prevAccount._id,userEmail,userPassword}, process.env.secret_key)
-             return res.status(200).send({message:"Successfully logged in", success:true}) ;
+             let token = jwt.sign({userId:prevAccount._id}, process.env.secret_key)
+             return res.status(200).send({message:"Successfully logged in", success:true,token}) ;
          }
     }
     catch(error)

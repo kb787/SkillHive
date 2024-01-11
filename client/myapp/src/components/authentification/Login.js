@@ -10,14 +10,29 @@ const Login = () =>
 
   const [userEmail, setUserEmail] = useState('') ;
   const [userPassword, setUserPassword] = useState('') ;
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  const handleValidationLogin = () => {
+      if((!userEmail) || (!userPassword)){
+          alert("Entering all fields is mandatory") ;
+          message.error("Registration failed") ;
+      }
+      else if(validEmail.test(userEmail) !== true){
+          alert("Enter a valid email address") ;
+          setUserEmail('') ;
+          message.error("Registration failed") ;
+      }
+      
+  }
 
   var nav = useNavigate();
 
   const handlePostLog = async() => 
   {
+     handleValidationLogin() ;
       try 
       {
-         var regRes = await axios.post("http://localhost:3500/v9/api/users/postLogin",
+         var regRes = await axios.post("http://localhost:3500/v9/api/postLogin",
          {
             userEmail:userEmail ,
             userPassword:userPassword  
