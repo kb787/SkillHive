@@ -96,11 +96,11 @@ let profileRouterDelete = express.Router() ;
 let profileRouterGetAll = express.Router() ;
 
 profileRouterPost.post('/postProfile',handleProfilePosting) ;
-profileRouterGet.put(`/updateProfile/:_id`,handleUpdateProfileById) ;
-profileRouterUpdate.get(`/getIndividualProfile:_id`,handleGetProfileById) ;
-profileRouterDelete.delete(`/deleteIndividualProfile:_id`,deleteProfileById) ;
+profileRouterUpdate.put(`/profile/:_id`,handleUpdateProfileById) ;
+profileRouterGet.get(`/profile/:_id`,handleGetProfileById) ;
+profileRouterDelete.delete(`/profile/:_id`,deleteProfileById) ;
 profileRouterGetAll.get(`/getAllProfile`,handleGetAllProfileAdmin) ;
-
+ 
 
 module.exports = {
     profileRouterPost:profileRouterPost,

@@ -33,22 +33,33 @@ app.get("/" , (req,res) => {
 app.use("/v1/api", registerRouter) ;
 app.use("/v9/api",loginRouter) ;
 app.use("/profile/api",profileRouterPost) ;
-app.use("/profile/api",profileRouterGet,MiddlewareId) ;
-app.use("/profile/api",profileRouterUpdate,MiddlewareId) ;
-app.use("/profile/api",profileRouterDelete,MiddlewareId) ;
+
+{/* app.use("/api",profileRouterGet,MiddlewareId) ;
+app.use("/api",MiddlewareId,profileRouterUpdate) ;
+app.use("/api",MiddlewareId,profileRouterDelete) ; */} // Using middlewares By Id methods 
+
+
+{/*   app.use("/profiles/api",profileRouterGet) ;
+app.use("/profiles/api",profileRouterUpdate) ;
+app.use("/profiles/api",profileRouterDelete)  */} // Without using middlewares By Id methods
+
 app.use("/profile/api",profileRouterGetAll) ;
 app.use("/project/api",projectRouterPost) ;
-app.use("/project/api",projectRouterGet,MiddlewareId) ;
+// app.use("/api",MiddlewareId,projectRouterGet) ;
+app.use("/api",projectRouterGet)
 app.use("/project/api",projectRouterGetAll) ;
 
 
  // app.use("/v3/api/posts",postRouter) ;
+ // Other methods from react-node api request
 {/* app.use("/v4/api/projects",fetchApplicationRouter) ;
 app.use("/v6/api/freelancersdatas",fetchDataRouter) ;
  app.use("/v7/api/userprofiles",userProfileRouter) ;
 app.use("/v8/api/freelancerprojects",projectFetchRouter) ;
 */}
 
+
+// Methods from node-flask api request 
 {/*
 app.post("/v9/api/postSkillsNode", async (req, res) => {
     const {userName, userFullName, userSkills} = req.body;
@@ -81,6 +92,7 @@ app.post("/v9/api/postSkillsNode", async (req, res) => {
     }
 });
 
+// Methods from node-flask api request 
 app.get("/v9/api/postSkillsNode",async(req,res) => {
        const {projectTitle} = req.body 
        try {

@@ -64,5 +64,5 @@ let projectRouterGet = express.Router() ;
 let projectRouterGetAll = express.Router() ;
 
 projectRouterPost.post('/applyProject', handleApplyProject) ;
-projectRouterGet.get(`/getProjectIndividual/:_id`,handleGetProjectById) ;
+// projectRouterGet.get(`/getProjectIndividual/:_id`,handleGetProjectById) ;
 projectRouterGetAll.get('/getAllProject',handleFetchAllProjects) ;
